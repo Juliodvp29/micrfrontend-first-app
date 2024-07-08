@@ -1,0 +1,16 @@
+{
+  "extends": "ts-config-single-spa",
+  "files": [
+    "src/safety-store.ts"
+  ],
+  "compilerOptions": {
+    "declarationDir": "dist",
+    "target": "ES6"
+  },
+  "include": [
+    "src/**/*"
+  ],
+  "exclude": [
+    "src/**/*.test*"
+  ]
+}

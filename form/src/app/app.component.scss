@@ -1,0 +1,35 @@
+.inputform {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  gap: 1em;
+  position: relative;
+  top: 5em;
+  width: max-content;
+  margin: auto;
+
+
+  input {
+    width: 500px;
+    height: 46px;
+    outline: none;
+    border-radius: 7px;
+    border: .5px solid rgb(137, 137, 137);
+    padding: .5em;
+    font-size: 14px;
+  }
+
+  button {
+    height: 46px;
+    outline: none;
+    border-radius: 7px;
+    width: 96px;
+    border: none;
+    background: rgb(149, 207, 61);
+    color: whitesmoke;
+    font-size: 17px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+}
+

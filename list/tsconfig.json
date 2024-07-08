@@ -1,0 +1,20 @@
+{
+  "extends": "ts-config-single-spa",
+  "compilerOptions": {
+    "jsx": "react-jsx",
+    "declarationDir": "dist",
+    "typeRoots": [
+      "./types",
+      "./node_modules/@types"
+    ]
+  },
+  "files": [
+    "src/safety-list.tsx"
+  ],
+  "include": [
+    "src/**/*"
+  ],
+  "exclude": [
+    "src/**/*.test*"
+  ]
+}
