@@ -440,13 +440,19 @@ Instalamos `RxJS` en nuestro proyecto `sotre`
 npm install rxjs
 ```
 
-Agregamos el ` target ES6` en el `tsconfig.json `
+Agregamos el `target ES6` en el `tsconfig.json `
 
 ```json
  "compilerOptions": {
     "declarationDir": "dist",
     "target": "ES6"
   },
+```
+
+Ejecutamos un `Build` este generará  una carpeta dist con un archivo `orgexamplename-store-d.ts`  que usaremos después
+
+```bash
+npm run build
 ```
 
 
