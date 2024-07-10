@@ -472,4 +472,28 @@ npm run start
 ```
 ---
 
+## Agregamos nuestro micrfrontend store al Root Config
+
+Agregamos lo siguiente en nuestro systemjs-importmap en nuestros archivo `example/src/index.ejs`
+
+```ejs
+  <!-- Add your organization's prod import map URL to this script's src  -->
+  <!-- <script type="systemjs-importmap" src="/importmap.json"></script> -->
+
+  <% if (isLocal) { %>
+    <script type="systemjs-importmap">
+    {
+      "imports": {
+        "@orgexamplename/root-config": "//localhost:9000/orgexamplename-root-config.js", 
+        "@orgexamplename/list": "http://localhost:3000/orgexamplename-list.js" // React microfrontend
+        "@orgexamplename/form": "http://localhost:4200/main.js", // Angular microfrontend
+        "@orgexamplename/store": "http://localhost:8500/orgexamplename-store.js", // Store microfrontend
+      }
+    }
+  </script>
+    <% } %>
+```
+
+
+
 
