@@ -185,7 +185,7 @@ registramos el microfrontend en  `example/src/microfrontend-layaout.html`
 
 ## Para Iniciar 
 
-ejecutamos en el directorio de nuestro micrfrontend /list.
+ejecutamos en el directorio de nuestro micrfrontend `/list`
 
 ```bash
 npm run start
@@ -334,7 +334,7 @@ registramos el microfrontend en  `example/src/microfrontend-layaout.html`
 
 ## Para Iniciar 
 
-ejecutamos en el directorio de nuestro micrfrontend /form.
+ejecutamos en el directorio de nuestro micrfrontend `/form` 
 
 ```bash
 npm run serve:single-spa:form
@@ -455,5 +455,21 @@ Ejecutamos un `Build` este generará  una carpeta dist con un archivo `orgexampl
 npm run build
 ```
 
+Configuramos el comando `start` en el package.json
+
+```json
+"scripts": {
+  "start": "webpack serve -- --port 8500",
+}
+```
+
+## Para Iniciar 
+
+ejecutamos en el directorio de nuestro micrfrontend  `/store`
+
+```bash
+npm run start
+```
+---
 
 
