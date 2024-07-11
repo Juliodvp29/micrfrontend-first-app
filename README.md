@@ -9,7 +9,7 @@ Este proyecto es una demostración de cómo integrar múltiples microfrontends u
 
 ## Instalación
 
-Para instalar las herramientas necesarias, puedes `npm` usar  o `yarn`
+Para instalar las herramientas necesarias, puedes usar `npm`   o `yarn`
 
 npm
 
