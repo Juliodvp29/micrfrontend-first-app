@@ -1,13 +1,15 @@
 # Todolist Microfrontend con Single SPA
 
-Este proyecto es una demostración de cómo integrar múltiples microfrontends utilizando Single SPA. Actualmente, cuenta con dos microfrontends: uno en React y otro en Angular.
+Este proyecto es una demostración de cómo integrar múltiples microfrontends utilizando Single SPA. Actualmente, cuenta con dos microfrontends: uno en React y otro en Angular, además de un microfrontend para el estado global.
 
 # Estructura de carpetas
 - `/form` - React Microfrontend
 - `/list` - Angular Microfrontend`
-- `/store` - Parcel independiente, mantiene el estado de las tareas de manera reactiva usando RxJS. 
+- `/store` - Parcel independiente que  mantiene el estado de las tareas de manera reactiva usando RxJS. 
 
 ## Instalación
+
+Para instalar las herramientas necesarias, puedes `npm` usar  o `yarn`
 
 npm
 
@@ -25,7 +27,7 @@ yarn global add create-single-spa
 
 El proyecto principal que configura y sirve los microfrontends.
 
-En la raíz del directorio donde queremos guardar el proyecto, ejecutamos lo siguiente.
+En la raíz del directorio donde queremos guardar el proyecto, ejecutamos lo siguiente
 
 ```bash
 npx create-single-spa --moduleType root-config
