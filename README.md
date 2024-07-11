@@ -218,7 +218,7 @@ Es posible que necesite eliminar la carpeta `/node_modules`  en su proyecto de A
 
 ## Configuración angular.json
 
-Buscamos  `"src/main.single-spa.ts"` y lo movemos a `architect > build > options` También  eliminamos `browser: "src/main.ts"`
+Buscamos  `"main": "src/main.single-spa.ts"` y lo movemos a `architect > build > options` También  eliminamos `browser: "src/main.ts"`
 
 ```json
   "options": {
