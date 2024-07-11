@@ -915,5 +915,5 @@ Deberíamos poder visualizar nuestra aplicación en http://localhost:9000, que e
 
 ## Resultado final
 
-![formulario angular](ruta/a/la/imagen.jpg)
+![formulario angular](formulario.jpg)
 
