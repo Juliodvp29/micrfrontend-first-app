@@ -919,6 +919,6 @@ Formulario en angular
 ![formulario angular](formulario.png)
 
 Lista en React 
-![formulario angular]([formulario.jpg](https://github.com/Juliodvp29/microfrontend-first-app/blob/main/lista.png))
+![formulario angular](lista.png)
 
 
