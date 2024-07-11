@@ -528,6 +528,29 @@ declare module '@orgexamplename/store' {
 
 ```
 
+Vamos a el `tsconfig.json` y agregamos  `typeRoots` en `compilerOptions`
+
+```json
+"typeRoots": [
+      "./src/types",
+      "./node_modules/@types"
+    ],
+```
+
+Ahora buscamos el archivo `extra-webpack.config` 
+
+```js
+const singleSpaAngularWebpack = require('single-spa-angular/lib/webpack').default;
+
+module.exports = (config, options) => {
+  const singleSpaWebpackConfig = singleSpaAngularWebpack(config, options);
+
+  // Feel free to modify this webpack config however you'd like to
+  singleSpaWebpackConfig.externals = ["single-spa", /^@orgexamplename\/store$/]; // Agregamos esta linea
+  return singleSpaWebpackConfig;
+};
+```
+
 ## En el `app.component.ts` 
 
 ```ts
