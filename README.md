@@ -664,7 +664,60 @@ Estilos para el formulario  `app.component.scss`
   }
 }
 
+```
+---
+
+## Configuración de la lista en React
+
+Vamos al `src` de nuestro microfrontend react y creamos una carpeta `/types` y dentro de ella un archivo llamado `orgexamplename-store-d.ts`  
+
+```ts
+declare module '@orgexamplename/store' {
+  import { Observable } from "rxjs";
+  export interface ITodo {
+    id: number;
+    text: string;
+    completed: boolean;
+  }
+  class StoreTodo {
+    private _storeTodo$;
+    private _id;
+    private _key;
+    constructor();
+    get storeTodo$(): Observable<ITodo[]>;
+    get id(): number;
+    addTodo(todo: ITodo): void;
+    changeCompleted(id: number): void;
+    deleteTodo(id: number): void;
+    private todos;
+    private saveInLocalStorage;
+    private getFromLocalStorage;
+  }
+  export const storeTodo: StoreTodo;
+}
 
 ```
+
+Instalamos `RxJS` 
+
+```bash
+npm install rxjs
+```
+
+Instalamos  `sweetalert2`
+
+```bash
+npm install sweetalert2
+```
+
+Vamos a el `tsconfig.json` y agregamos  `typeRoots` en `compilerOptions`
+
+```json
+ "typeRoots": [
+      "./types",
+      "./node_modules/@types"
+    ]
+```
+
 
 
