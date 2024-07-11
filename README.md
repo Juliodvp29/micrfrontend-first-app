@@ -535,7 +535,7 @@ declare module '@orgexamplename/store' {
 import { Component } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { RouterOutlet } from '@angular/router';
-import { storeTodo, ITodo } from '@safety/store';
+import { storeTodo, ITodo } from '@orgexamplename/store';
 import Swal from 'sweetalert2';
 
 
@@ -550,7 +550,6 @@ export class AppComponent {
   title = 'form';
 
   form: FormGroup;
-
 
   constructor(private fb: FormBuilder) {
     this.form = this.fb.group({
@@ -587,7 +586,7 @@ export class AppComponent {
 
 ```
 
-Agregamos la importación  de `storeTodo`  &  `ITodo` del archivo `orgexamplename-store-d.ts`. `import { storeTodo, ITodo } from '@safety/store';` 
+Agregamos la importación  de `storeTodo`  &  `ITodo` del archivo `orgexamplename-store-d.ts`. `import { storeTodo, ITodo } from '@orgexamplename/store';` 
 
 Instalamos  `sweetalert2`
 
@@ -595,8 +594,54 @@ Instalamos  `sweetalert2`
 npm install sweetalert2
 ```
 
+## En el `app.component.html` 
+
+```html
+<form class="inputform" [formGroup]="form" (ngSubmit)="onSubmit()">
+  <input type="text" placeholder="Agrega una nueva tarea" formControlName="title" />
+  <button type="submit">Enviar</button>
+</form>
+```
+
+Estilos para el formulario  `app.component.scss`
+
+```scss
+.inputform {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  gap: 1em;
+  position: relative;
+  top: 5em;
+  width: max-content;
+  margin: auto;
 
 
+  input {
+    width: 500px;
+    height: 46px;
+    outline: none;
+    border-radius: 7px;
+    border: .5px solid rgb(137, 137, 137);
+    padding: .5em;
+    font-size: 14px;
+  }
 
+  button {
+    height: 46px;
+    outline: none;
+    border-radius: 7px;
+    width: 96px;
+    border: none;
+    background: rgb(149, 207, 61);
+    color: whitesmoke;
+    font-size: 17px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+}
+
+
+```
 
 
