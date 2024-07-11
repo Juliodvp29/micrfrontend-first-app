@@ -915,5 +915,10 @@ Deberíamos poder visualizar nuestra aplicación en http://localhost:9000, que e
 
 ## Resultado final
 
-![formulario angular](formulario.jpg)
+Formulario en angular  
+![formulario angular]([formulario.jpg](https://github.com/Juliodvp29/microfrontend-first-app/blob/main/formulario.png))
+
+Lista en React 
+![formulario angular]([formulario.jpg](https://github.com/Juliodvp29/microfrontend-first-app/blob/main/lista.png))
+
 
