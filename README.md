@@ -846,5 +846,65 @@ button:hover {
 }
 ```
 
+## Regresamos a la raíz  de nuestro proyecto, el Root Config
 
+En el archivo `microfrontend-layout.html` agregamos las siguientes rutas
 
+```html
+
+<single-spa-router>
+  <main>
+    <single-spa-router>
+      <nav class="topnav">
+        <li><a href="/">Home</a></li>
+        <li><a href="/form">Form</a></li>
+        <li><a href="/list">List</a></li>
+      </nav>
+      <route path="form">
+        <application name="@orgexamplename/form"></application>
+      </route>
+      <route path="list">
+        <application name="@orgexamplename/list"></application>
+      </route>
+    </single-spa-router>
+  </main>
+</single-spa-router>
+ 
+```
+Agregamos los siguientes estilos en el `index.ejs`
+
+```css
+<style>
+  * {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+  }
+
+  .topnav {
+    background-color: #000;
+    display: flex;
+    position: sticky;
+    top: 0;
+    flex-direction: row;
+    padding: 1em;
+    justify-content: space-evenly;
+    -webkit-box-shadow: 1px 6px 7px -2px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 1px 6px 7px -2px rgba(0, 0, 0, 0.75);
+    box-shadow: 1px 6px 7px -2px rgba(0, 0, 0, 0.75);
+  }
+
+  .topnav li a {
+    text-decoration: none;
+    font-weight: 600;
+    color: whitesmoke;
+    font-size: 17px;
+  }
+
+  .topnav li a:hover {
+    font-size: 18px;
+    color: aliceblue
+  }
+</style>
+
+```
