@@ -913,5 +913,7 @@ Por último, nos aseguramos de que todos los microfrontends estén corriendo en 
 
 Deberíamos poder visualizar nuestra aplicación en http://localhost:9000, que es el puerto por defecto configurado en el package.json del Root Config.
 
+## Resultado final
 
+![formulario angular](ruta/a/la/imagen.jpg)
 
