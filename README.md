@@ -719,5 +719,132 @@ Vamos a el `tsconfig.json` y agregamos  `typeRoots` en `compilerOptions`
     ]
 ```
 
+## En el `root.component.tsx`
+
+```tsx
+import { useEffect, useState } from "react";
+import Swal from 'sweetalert2';
+import { ITodo, storeTodo } from "@orgexamplename/store";
+import './css/style.css'
+
+export default function Root(props) {
+  const [todos, setTodos] = useState<ITodo[]>([])
+
+  useEffect(() => {
+    const sub = storeTodo.storeTodo$.subscribe(setTodos)
+    return () => {
+      sub.unsubscribe();
+    }
+  }, [])
+
+  const handleDelete = (id: number) => {
+    Swal.fire({
+      title: '¿Estás seguro?',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Sí!'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        storeTodo.deleteTodo(id)
+        Swal.fire(
+          'Eliminado!',
+          'La tarea ha sido eliminada.',
+          'success'
+        )
+        setTodos(todos.filter(todo => todo.id !== id));
+      }
+    })
+  }
+
+
+  return (
+    <section className="listMenu">
+      <table>
+        <thead>
+          <tr>
+            <th>Task</th>
+            <th>Completed</th>
+            <th>Delete</th>
+          </tr>
+        </thead>
+        <tbody>
+          {todos.map(todo => (
+            <tr key={todo.id}>
+              <td>{todo.text}</td>
+              <td>{todo.completed ? 'Terminado' : 'En Proceso'}</td>
+              <td>
+                <button onClick={() => handleDelete(todo.id)}>Delete</button>
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </section>
+  );
+}
+
+```
+
+Estilos para la lista
+
+```css
+.listMenu {
+    width: 100%;
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background-color: #f9f9f9;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th,
+td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+    background-color: #f4f4f4;
+    color: #333;
+    font-weight: bold;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+tr:hover {
+    background-color: #e9e9e9;
+}
+
+button {
+    background-color: #ff4d4d;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+button:hover {
+    background-color: #e60000;
+}
+```
+
 
 
