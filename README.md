@@ -493,6 +493,109 @@ Agregamos lo siguiente en nuestro systemjs-importmap en nuestros archivo `exampl
   </script>
     <% } %>
 ```
+---
+
+## Configuración del formulario en Angular
+
+Vamos al `src` de nuestro microfrontend angular y creamos una carpeta `/types` y dentro de ella un archivo llamado `orgexamplename-store-d.ts`  
+
+Ahora vamos a nuestro proyecto `store` y buscamos el archivo `orgexamplename-store-d.ts` dentro de `/dist` carpeta generada al hacer el  `Build`.  Copiamos el código  y lo usamos en el `orgexamplename-store-d.ts` que acabamos de crear en `/types`
+
+```ts
+declare module '@orgexamplename/store' {
+  import { Observable } from "rxjs";
+  export interface ITodo {
+    id: number;
+    text: string;
+    completed: boolean;
+  }
+  class StoreTodo {
+    private _storeTodo$;
+    private _id;
+    private _key;
+    constructor();
+    get storeTodo$(): Observable<ITodo[]>;
+    get id(): number;
+    addTodo(todo: ITodo): void;
+    changeCompleted(id: number): void;
+    deleteTodo(id: number): void;
+    private todos;
+    private saveInLocalStorage;
+    private getFromLocalStorage;
+  }
+  export const storeTodo: StoreTodo;
+}
+
+```
+
+## En el `app.component.ts` 
+
+```ts
+
+import { Component } from '@angular/core';
+import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { RouterOutlet } from '@angular/router';
+import { storeTodo, ITodo } from '@safety/store';
+import Swal from 'sweetalert2';
+
+
+@Component({
+  selector: 'app-root',
+  standalone: true,
+  imports: [RouterOutlet, ReactiveFormsModule],
+  templateUrl: './app.component.html',
+  styleUrl: './app.component.scss'
+})
+export class AppComponent {
+  title = 'form';
+
+  form: FormGroup;
+
+
+  constructor(private fb: FormBuilder) {
+    this.form = this.fb.group({
+      title: new FormControl(null, Validators.required)
+    })
+
+    console.log(storeTodo)
+  }
+
+  onSubmit(): void {
+    const { title } = this.form.value;
+
+    const todo: ITodo = {
+      completed: true,
+      id: storeTodo.id,
+      text: title
+    }
+
+    storeTodo.addTodo(todo);
+    this.form.reset()
+    Swal.fire({
+      position: 'top-end',
+      icon: 'success',
+      title: 'Tarea agregada exitosamente',
+      showConfirmButton: false,
+      timer: 1500,
+      customClass: {
+        popup: 'swal2-toast'
+      }
+    });
+  }
+
+}
+
+```
+
+Agregamos la importación  de `storeTodo`  &  `ITodo` del archivo `orgexamplename-store-d.ts`. `import { storeTodo, ITodo } from '@safety/store';` 
+
+Instalamos  `sweetalert2`
+
+```bash
+npm install sweetalert2
+```
+
+
 
 
 
