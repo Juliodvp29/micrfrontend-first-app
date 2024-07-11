@@ -918,9 +918,11 @@ Deberíamos poder visualizar nuestra aplicación en http://localhost:9000, que e
 ## Resultado final
 
 Formulario en angular  
+
 ![formulario angular](formulario.png)
 
 Lista en React 
+
 ![formulario angular](lista.png)
 
 
