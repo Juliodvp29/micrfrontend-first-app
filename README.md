@@ -908,3 +908,10 @@ Agregamos los siguientes estilos en el `index.ejs`
 </style>
 
 ```
+
+Por último, nos aseguramos de que todos los microfrontends estén corriendo en sus respectivos puertos.
+
+Deberíamos poder visualizar nuestra aplicación en http://localhost:9000, que es el puerto por defecto configurado en el package.json del Root Config.
+
+
+
