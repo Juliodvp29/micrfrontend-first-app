@@ -65,7 +65,7 @@ Si abrimos nuestro proyecto, podremos ver dos archivos principales.
     {
       "imports": {
         // Eliminamos @single-spa/welcome 
-        "@safety/root-config": "//localhost:9000/orgexamplename-root-config.js",
+        "@orgexamplename/root-config": "//localhost:9000/orgexamplename-root-config.js",
       }
     }
   </script>
